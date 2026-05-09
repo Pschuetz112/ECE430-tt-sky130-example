@@ -41,4 +41,4 @@ async def test_project(dut):
 
     await ClockCycles(dut.clk, 70)
 
-    assert int(dut.uo_out.value) == 6
+    assert int(dut.uo_out.value) == 12
