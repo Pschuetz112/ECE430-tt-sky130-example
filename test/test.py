@@ -28,7 +28,18 @@ async def test_project(dut):
     # uio_in[3:0] = mp
     #
     # Test 3 * 2 = 6
+    dut.ui_in.value = 0b00000110
+    dut.uio_in.value = 0b00000010
+
+    await ClockCycles(dut.clk, 2)
+
     dut.ui_in.value = 0b00000111
+
+    await ClockCycles(dut.clk, 2)
+
+    dut.ui_in.value = 0b00000110
+
+    await ClockCycles(dut.clk, 70)    dut.ui_in.value = 0b00000111
     dut.uio_in.value = 0b00000010
 
     await ClockCycles(dut.clk, 70)
